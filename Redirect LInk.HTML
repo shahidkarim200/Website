@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAttachment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+        body {
+            background-color: #FFF9F3; /* Lighter peach background */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Prevent scrollbars from appearing */
+        }
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: absolute;
+            top: 40px; /* Moved down slightly */
+            z-index: 1; /* Ensure header is above the images */
+        }
+        .header .title {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: bolder; /* Make the title bolder */
+            color: #080A47;
+            margin-left: 15%; /* Adjusted positioning */
+        }
+        .header .learn-box {
+            background-color: #3A30BA; /* Blueish purple */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            margin-right: 15%; /* Similar positioning from the right */
+        }
+        .main-content {
+            transform: translateY(30px); /* Start from slightly below */
+            animation: floatUp 1s ease-out forwards; /* Animation for floating up */
+            z-index: 1; /* Ensure main content is above the images */
+        }
+        @keyframes floatUp {
+            to {
+                transform: translateY(0);
+            }
+        }
+        .main-content .main-title {
+            font-family: 'Hanken Grotesk', sans-serif;
+            font-size: 80px;
+            font-weight: bolder;
+            color: #080A47;
+            margin-top: 20px; /* Adjusted to bring up the text */
+            line-height: 1.2;
+        }
+        .main-content .main-title br {
+            display: none; /* Remove default line break */
+        }
+        .main-content .main-title::after {
+            content: " ";
+            display: block; /* Add space between words */
+            height: 10px;
+        }
+        .main-content .sub-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: normal;
+            color: #080A47;
+            margin-top: 20px;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px; /* Space between sub-title and buttons */
+            animation: floatUp 1s ease-out forwards; /* Animation for floating up */
+        }
+        .button {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #3A30BA;
+            cursor: pointer;
+        }
+        .take-test {
+            background-color: #3A30BA;
+            color: white;
+        }
+        .attachment-styles {
+            background-color: transparent;
+            color: #3A30BA;
+        }
+
+        .floating-image-top {
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 50vw;
+            height: auto;
+            animation: floatImage 3s ease-in-out infinite;
+            transform: rotate(15deg); /* Subtle cloud shape */
+            z-index: 0; /* Send image to the background */
+        }
+
+        .floating-image-bottom {
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 50vw;
+            height: auto;
+            animation: floatImage 3s ease-in-out infinite;
+            transform: rotate(-15deg); /* Subtle cloud shape */
+            z-index: 0; /* Send image to the background */
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                top: 20px;
+            }
+            .header .title,
+            .header .learn-box {
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .main-content .main-title {
+                font-size: 48px;
+                margin-top: 40px;
+            }
+            .main-content .sub-title {
+                font-size: 18px;
+            }
+            .buttons-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .button {
+                width: 80%;
+                padding: 10px;
+            }
+            .floating-image-top,
+            .floating-image-bottom {
+                width: 70vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 5px 10px;
+                top: 10px;
+            }
+            .header .title {
+                font-size: 18px;
+            }
+            .header .learn-box {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .main-content .main-title {
+                font-size: 36px;
+                margin-top: 30px;
+            }
+            .main-content .sub-title {
+                font-size: 16px;
+            }
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .floating-image-top,
+            .floating-image-bottom {
+                width: 80vw;
+            }
+        }
+    </style>
+    <script>
+        function redirectToTest() {
+            window.location.href = "file:///C:/Users/shahi/Downloads/Here's%20the%20updated%20HTML%20and%20CSS%20to.html"; // Replace with the path to your questionnaire HTML file
+        }
+    </script>
+</head>
+<body>
+    <img src="C:\Users\shahi\Downloads\vector-13png_1700130200_54679.png" alt="Top Image" class="floating-image-top"> <!-- Replace with your top image path -->
+    <img src="C:\Users\shahi\Downloads\vector-15png_1700141862_82973.png" alt="Bottom Image" class="floating-image-bottom"> <!-- Replace with your bottom image path -->
+    <div class="header">
+        <div class="title">My Attachment</div>
+        <div class="learn-box">About the Scale</div>
+    </div>
+    <div class="main-content">
+        <div class="main-title">
+            Find Out Your
+            <br>
+            Attachment Style
+        </div>
+        <div class="sub-title">
+            Take the clinically tested questionnaire to get an accurate analysis of your attachment style!
+        </div>
+        <div class="buttons-container">
+            <div class="button take-test" onclick="redirectToTest()">Take the Test</div>
+            <div class="button attachment-styles">Attachment Styles</div>
+        </div>
+    </div>
+</body>
+</html>
